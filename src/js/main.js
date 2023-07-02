@@ -1,5 +1,5 @@
-// main.js
 import { saveState, getState } from "./localStorage";
+import { enableDraggingManagement } from "./draggingModule.js";
 
 const lists = document.querySelectorAll(".list");
 const form = document.querySelectorAll(".form");
@@ -16,7 +16,7 @@ function renderTasks() {
       list.appendChild(newItem);
     });
 
-    draggingManagement();
+    enableDraggingManagement(state, lists);
   });
 }
 
@@ -65,7 +65,7 @@ function addTask(index) {
   currentAddBtn.addEventListener("click", () => {
     const newItem = createTaskItem(textarea.value);
     lists[index].appendChild(newItem);
-    draggingManagement();
+    enableDraggingManagement(state, lists);
     state[index].tasks.push(textarea.value);
     saveState(state);
     textarea.value = "";
@@ -85,66 +85,6 @@ function changeTitle() {
   titles.forEach((title) => {
     title.addEventListener("click", (e) => (e.target.textContent = ""));
   });
-}
-
-function draggingManagement() {
-  const draggables = document.querySelectorAll(".draggable");
-  draggables.forEach((draggable) => {
-    draggable.addEventListener("dragstart", () => {
-      draggable.classList.add("dragging");
-    });
-    draggable.addEventListener("dragend", () => {
-      draggable.classList.remove("dragging");
-      updateState();
-    });
-  });
-
-  const lists = document.querySelectorAll(".list");
-  lists.forEach((list) => {
-    list.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      const afterElement = getDragAfterElement(list, e.clientY);
-      const draggable = document.querySelector(".dragging");
-      if (afterElement == null) {
-        list.appendChild(draggable);
-      } else {
-        list.insertBefore(draggable, afterElement);
-      }
-    });
-  });
-}
-
-function getDragAfterElement(list, y) {
-  const draggableElements = [
-    ...list.querySelectorAll(".draggable:not(.dragging)"),
-  ];
-
-  return draggableElements.reduce(
-    (closest, child) => {
-      const box = child.getBoundingClientRect();
-      const offset = y - box.top - box.height / 2;
-      if (offset < 0 && offset > closest.offset) {
-        return { offset: offset, element: child };
-      } else {
-        return closest;
-      }
-    },
-    { offset: Number.NEGATIVE_INFINITY }
-  ).element;
-}
-
-function updateState() {
-  const updatedState = [];
-
-  lists.forEach((list) => {
-    const tasks = Array.from(list.querySelectorAll(".list__item")).map(
-      (item) => item.textContent
-    );
-    updatedState.push({ tasks });
-  });
-
-  state = updatedState;
-  saveState(state);
 }
 
 function initializeState() {
