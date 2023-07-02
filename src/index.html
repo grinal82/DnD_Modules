@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello-clone</title>
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="app">
+        <!-- container for all boards -->
+        <div class="boards">
+
+            <!-- single board starts here -->
+            <div class="boards__item">
+                <span contenteditable="true" class="title">TODO</span>
+                <div class="list" id="card-1">
+                    <div class="list__item draggable" draggable="true">Стартовая карточка</div>
+                </div>
+
+                <div class="form">
+                    <textarea class="textarea" placeholder="введите текст"></textarea>
+
+                    <div class="buttons">
+                        <button class="add__item-btn">Добавить</button>
+                        <button class="cancel__item-btn">Отмена</button>
+                    </div>
+                </div>
+                <div class="add__btn"><span> + </span> Добавить карточку </div>
+            </div>
+
+            <!-- single board starts here -->
+            <div class="boards__item">
+                <span contenteditable="true" class="title">IN PROGRESS</span>
+                <div class="list" id="card-2">
+                    <div class="list__item draggable" draggable="true">Стартовая карточка</div>
+                </div>
+
+                <div class="form">
+                    <textarea class="textarea" placeholder="введите текст"></textarea>
+
+                    <div class="buttons">
+                        <button class="add__item-btn">Добавить</button>
+                        <button class="cancel__item-btn">Отмена</button>
+                    </div>
+                </div>
+                <div class="add__btn"><span> + </span> Добавить карточку </div>
+            </div>
+
+            <!-- single board starts here -->
+            <div class="boards__item">
+                <span contenteditable="true" class="title">DONE</span>
+                <div class="list" id="card-3">
+                    <div class="list__item draggable" draggable="true">Стартовая карточка</div>
+                </div>
+
+                <div class="form">
+                    <textarea class="textarea" placeholder="введите текст"></textarea>
+
+                    <div class="buttons">
+                        <button class="add__item-btn">Добавить</button>
+                        <button class="cancel__item-btn">Отмена</button>
+                    </div>
+                </div>
+                <div class="add__btn"><span> + </span> Добавить карточку </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- <script src="./js/app.js" type="module"></script> -->
+</body>
+
+</html>

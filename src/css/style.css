@@ -1,0 +1,167 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: #213e4f;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+.app {
+    background-color: #107abb;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding: 50px 0;
+}
+
+.boards {
+    display: flex;
+    justify-content: center;
+    margin-top: 0 auto;
+    width: 100%;
+}
+
+.boards__item {
+    display: flex;
+    flex-direction: column;
+    align-self: baseline;
+    margin: 0 50px;
+    max-width: 300px;
+    width: 100%;
+    background-color: rgba(0,0,0, .5);
+    padding: 10px;
+    transition: .3s all ease;
+    border-radius: 3px;
+}
+
+.boards__item:first-child {
+    margin-left: 0;
+}
+
+.title {
+    padding: 5px;
+    color: white
+}
+
+.title:focus {
+    outline: 1px solid rgba(168,168,168, .45);
+}
+
+.list {
+    min-height: 40px;
+}
+
+.list__item {
+    position: relative;
+    background-color: #fefefe;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin: 4px 0;
+    cursor: grabbing;
+    font-weight: 400px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+}
+
+
+.delete-icon {
+    position: absolute;
+    /* display: none; */
+    top: 5px;
+    right: 5px;
+    font-size: 18px;
+    transition: all .3s ease-out;
+}
+
+.delete-icon:hover {
+    color: red;
+    box-shadow: #213e4f;
+    cursor: pointer;
+    font-size: 22px;
+    transform: rotate(90deg);
+}
+
+.form {
+    border-radius: 5px;
+    margin-top: auto;
+    display: none;
+}
+
+.textarea {
+    resize: none;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+    background: white;
+    padding: 10px;
+    width: 100%;
+}
+
+.textarea:focus {
+    outline: none;
+}
+
+
+.buttons {
+    display: flex;
+}
+
+.add__item-btn {
+    background: rgb(13,136,218);
+    border: none;
+    height: 35px;
+    cursor: pointer;
+    color: whitesmoke;
+    border-radius: 5px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    width: 60%;
+}
+
+.cancel__item-btn {
+    background: rgb(160,17,12);
+    padding: 0 10px;
+    cursor: pointer;
+    border: none;
+    height: 35px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.add__btn {
+    height: 30px;
+    background: rgba(155,155,155, .3);
+    border-radius: 5px;
+    margin-top: 5px;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    padding-left: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+span {
+    font-size: 20px;
+    margin-right: 10px;
+    color: white;
+}
+
+.draggable.dragging {
+    opacity: .5;
+}
